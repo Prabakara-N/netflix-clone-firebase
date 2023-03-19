@@ -12,6 +12,7 @@ const Movie = ({ item }) => {
   const movieID = doc(db, "users", `${user?.email}`);
 
   const saveShow = async () => {
+    saved(false);
     if (user?.email) {
       setLike(!like);
       setSaved(true);
