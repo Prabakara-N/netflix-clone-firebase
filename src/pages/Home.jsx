@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <>
       <Main />
+      {/* sending props to row component */}
       <Row rowID="1" title="UpComing" fetchURL={requests.requestUpcoming} />
       <Row rowID="2" title="Popular" fetchURL={requests.requestPopular} />
       <Row rowID="3" title="Trending" fetchURL={requests.requestTrending} />

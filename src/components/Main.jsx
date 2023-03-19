@@ -5,14 +5,17 @@ import requests from "../Requests";
 const Main = () => {
   const [movies, setMovies] = useState([]);
 
+  // the img will show randomly every time we refresh
   const movie = movies[Math.floor(Math.random() * movies.length)];
 
+  // getting data from api
   useEffect(() => {
     axios.get(requests.requestPopular).then((response) => {
       setMovies(response.data.results);
     });
   }, []);
 
+  // to short movie overview description
   const truncateString = (str, num) => {
     if (str?.length > num) {
       return str.slice(0, num) + "...";
@@ -25,12 +28,14 @@ const Main = () => {
     <div className="w-full h-[600px] text-white">
       <div className="w-full h-full">
         <div className="absolute w-full h-[600px] bg-gradient-to-r from-black"></div>
+        {/* main bg img */}
         <img
           className="w-full h-full object-cover"
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
         />
         <div className="absolute w-full top-[20%] p-4 md:p-8">
+          {/* title of the movie */}
           <h1 className="text-3xl md:text-5xl font-bold">{movie?.title}</h1>
           <div className="my-4">
             <button className="border bg-gray-300 text-black border-gray-300 py-2 px-5">
@@ -40,9 +45,11 @@ const Main = () => {
               Watch Later
             </button>
           </div>
+          {/* movie release date */}
           <p className="text-gray-400 text-sm">
             Released: {movie?.release_date}
           </p>
+          {/* about the movie */}
           <p className="w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200">
             {truncateString(movie?.overview, 150)}
           </p>
