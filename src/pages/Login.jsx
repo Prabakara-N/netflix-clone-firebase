@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import SocialMedia from "../components/SocialMedia";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -41,7 +42,10 @@ const Login = () => {
             </div>
             <h1 className="text-3xl font-bold">Sign In</h1>
             {error ? <p className="p-3 bg-red-400 my-2">{error}</p> : null}
-            <form onSubmit={handleSubmit} className="w-full flex flex-col py-4">
+            <form
+              onSubmit={handleSubmit}
+              className="w-full flex flex-col py-4 -mt-3 "
+            >
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 className="p-3 my-2 bg-gray-700 rouded-md"
@@ -51,7 +55,7 @@ const Login = () => {
               />
               <input
                 onChange={(e) => setPassword(e.target.value)}
-                className="p-3 my-2 bg-gray-700 rouded-md"
+                className="p-3 my-2 bg-gray-700 rouded"
                 type="password"
                 placeholder="Password"
                 autoComplete="current-password"
@@ -71,6 +75,7 @@ const Login = () => {
                 <Link to="/signup">Sign Up</Link>
               </p>
             </form>
+            <SocialMedia />
           </div>
         </div>
       </div>

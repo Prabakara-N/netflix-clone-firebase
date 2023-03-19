@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import SocialMedia from "../components/SocialMedia";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -40,7 +41,7 @@ const Signup = () => {
               <h1 className="text-3xl font-bold">Sign Up</h1>
               <form
                 onSubmit={handleSubmit}
-                className="w-full flex flex-col py-4"
+                className="w-full flex -mt-3 flex-col py-4"
               >
                 <input
                   onChange={(e) => setEmail(e.target.value)}
@@ -70,9 +71,10 @@ const Signup = () => {
                   <span className="text-gray-600">
                     Already subscribed to Netflix?
                   </span>{" "}
-                  <Link to="/login">Sign In</Link>
+                  <Link to="/login"> Sign In</Link>
                 </p>
               </form>
+              <SocialMedia />
             </div>
           </div>
         </div>
