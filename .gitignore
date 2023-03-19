@@ -11,6 +11,7 @@
 # production
 /build
 /.components/Movie.jsx/saved
+/saved
 
 # misc
 .DS_Store
