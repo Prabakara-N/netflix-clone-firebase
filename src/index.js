@@ -7,7 +7,7 @@ import "./styles/App.css";
 import "./styles/normalize.css";
 
 // import auth context
-import { AuthContextProvider } from "./context/AuthContext";
+import AuthContextProvider from "./context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

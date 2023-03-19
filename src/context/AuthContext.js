@@ -11,15 +11,16 @@ import { setDoc, doc } from "firebase/firestore";
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
+  // user state
   const [user, setUser] = useState({});
 
   // signup
-  function signUp(email, password) {
+  const signUp = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password);
     setDoc(doc(db, "users", email), {
       savedShows: [],
     });
-  }
+  };
 
   // login
   const logIn = (email, password) => {
