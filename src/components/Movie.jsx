@@ -9,6 +9,8 @@ const Movie = ({ item }) => {
   const [saved, setSaved] = useState(false);
   const { user } = UserAuth();
 
+  // user?.name This syntax is used to access the "email" property of an object named "user" in a safe way
+
   const movieID = doc(db, "users", `${user?.email}`);
 
   const saveShow = async () => {
@@ -16,6 +18,7 @@ const Movie = ({ item }) => {
       setLike(!like);
       setSaved(true);
       await updateDoc(movieID, {
+        // array union -It allows you to add one or more elements to an array, but only if those elements are not already present in the array. If any of the elements already exist in the array, they will be ignored, and the array will remain unchange
         savedShows: arrayUnion({
           id: item.id,
           title: item.title,
