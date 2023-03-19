@@ -12,7 +12,6 @@ const Movie = ({ item }) => {
   const movieID = doc(db, "users", `${user?.email}`);
 
   const saveShow = async () => {
-    saved(false);
     if (user?.email) {
       setLike(!like);
       setSaved(true);
@@ -24,6 +23,7 @@ const Movie = ({ item }) => {
         }),
       });
     } else {
+      saved(false);
       alert("Please log in to save a movie");
     }
   };
