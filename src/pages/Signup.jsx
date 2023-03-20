@@ -6,6 +6,7 @@ import SocialMedia from "../components/SocialMedia";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { signUp } = UserAuth();
   const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const Signup = () => {
       navigate("/");
     } catch (error) {
       console.log(error);
+      setError(error.message);
     }
   };
 
@@ -39,6 +41,11 @@ const Signup = () => {
                 />
               </div>
               <h1 className="text-3xl font-bold">Sign Up</h1>
+              {error ? (
+                <small className="p-3 text-red-500 font-semibold my-2">
+                  {error}
+                </small>
+              ) : null}
               <form
                 onSubmit={handleSubmit}
                 className="w-full flex -mt-3 flex-col py-4"
