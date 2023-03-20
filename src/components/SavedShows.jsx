@@ -9,12 +9,13 @@ const SavedShows = () => {
   const [movies, setMovies] = useState([]);
   const { user } = UserAuth();
 
+  // slider animation
   const slideLeft = () => {
-    var slider = document.getElementById("slider");
+    let slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 500;
   };
   const slideRight = () => {
-    var slider = document.getElementById("slider");
+    let slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft + 500;
   };
 
@@ -25,7 +26,7 @@ const SavedShows = () => {
   }, [user?.email]);
 
   const movieRef = doc(db, "users", `${user?.email}`);
-  
+
   const deleteShow = async (passedID) => {
     try {
       const result = movies.filter((item) => item.id !== passedID);

@@ -5,7 +5,7 @@ import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 const SocialMedia = () => {
   return (
     <div>
-      <div className="container mx-auto text-center flex gap-5 justify-center items-center -mt-5 text-white">
+      <div className="container mx-auto text-center flex gap-5 justify-center items-center  text-white -mt-5">
         <a href="https://www.instagram.com/swag__55__/">
           <div className="fa-instagram icons text-2xl hover:text-red-500 transition-all duration-300">
             <FaInstagram />
