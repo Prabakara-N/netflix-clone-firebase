@@ -41,7 +41,11 @@ const Login = () => {
               />
             </div>
             <h1 className="text-3xl font-bold">Sign In</h1>
-            {error ? <p className="p-3 bg-red-400 my-2">{error}</p> : null}
+            {error ? (
+              <small className="p-3 text-red-500 font-semibold my-2">
+                {error}
+              </small>
+            ) : null}
             <form
               onSubmit={handleSubmit}
               className="w-full flex flex-col py-4 -mt-3 "
